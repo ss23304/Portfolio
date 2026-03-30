@@ -1,0 +1,36 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "👤 About Me",
+      "description": "BSc Politics and International Relations student at the University of Essex\n",
+      "author": [],
+      "contents": "\r\nCapstone Project\r\nI am currently working on my dissertation, focussing on government effectiveness and political participation.\r\nPrevious Modules\r\nGV110 - Thinking like a Social Scientist\r\nGV207 - Quantitative Political Analysis\r\nGV217 - Conflict Analysis\r\n\r\n\r\n\r\n",
+      "last_modified": "2026-03-30T06:54:31+01:00"
+    },
+    {
+      "path": "Data-Analysis.html",
+      "title": "📊 Data Analysis",
+      "description": "This page is a showcase of Data Analysis work completed for the GV300 Advanced Quantitative Political Analysis module.\n",
+      "author": [],
+      "contents": "\r\n\r\nContents\r\nData Organisation and Manipulation\r\nManipulating data to create categories for better analysis\r\nOrganising data to create visualisations\r\n\r\nData Visaulisations\r\nMean Turnout by Country in the 2024 UK General Election\r\nDistribution of Constituencies by Level of Turnout\r\nImpact of Mothers’ Age, Education, and Work Status on Child Test Score\r\n\r\nData Sources\r\n\r\nData Organisation and Manipulation\r\nManipulating data to create categories for better analysis\r\nCreating categories for the ordinal variables of mother’s work status, mother’s IQ, and mother’s level of education.\r\nThe level of education and work status are combined to create a new “advantage” variable.\r\n\r\n\r\n# Create meaningful categories\r\nkidiq <- kidiq %>%\r\n  mutate(\r\n    # Create work status labels\r\n    work_status = case_when(\r\n      mom_work == 1 ~ \"Not working\",\r\n      mom_work == 2 ~ \"Part-time\",\r\n      mom_work == 3 ~ \"Full-time\",\r\n      mom_work == 4 ~ \"Full-time+\"\r\n    ),\r\n    # Create combined advantage categories\r\n    family_advantage = case_when(\r\n      mom_hs == 0 & mom_work <= 2 ~ \"Low advantage\",\r\n      mom_hs == 0 & mom_work > 2 ~ \"Mixed advantage\",\r\n      mom_hs == 1 & mom_work <= 2 ~ \"Mixed advantage\", \r\n      mom_hs == 1 & mom_work > 2 ~ \"High advantage\"\r\n    ),\r\n    # Create IQ terciles for grouping\r\n    iq_group = case_when(\r\n      mom_iq <= quantile(mom_iq, 0.33, na.rm = TRUE) ~ \"Lower IQ\",\r\n      mom_iq <= quantile(mom_iq, 0.67, na.rm = TRUE) ~ \"Middle IQ\",\r\n      TRUE ~ \"Higher IQ\"\r\n    ),\r\n    # Create schooling lables\r\n    mom_school = case_when(\r\n      mom_hs == 0 ~ \"Not Completed High School\",\r\n      mom_hs == 1 ~ \"Completed High School\"\r\n    )\r\n  )\r\n# Turning iq_group into a factor so they are ordered correctly when creating the\r\n# visualisation\r\nkidiq$iq_group = factor(kidiq$iq_group, levels = c(\"Lower IQ\", \"Middle IQ\", \"Higher IQ\"))\r\n\r\n\r\nOrganising data to create visualisations\r\nOrganising mother’s IQ and child test score, which are continuous variables, into broad ordinal categories.\r\nCombining mother’s IQ and child test score to identify “surprising cases”, where there is a large disparity between mother’s IQ and child attainment in test score.\r\n\r\n\r\n# Create categories for the analysis\r\n\r\nkidiq <- kidiq %>%\r\n  mutate(\r\n    # Create ability categories\r\n    ability_level = case_when(\r\n      mom_iq <= quantile(mom_iq, 0.25, na.rm = TRUE) ~ \"Low ability\",\r\n      mom_iq <= quantile(mom_iq, 0.75, na.rm = TRUE) ~ \"Medium ability\",\r\n      TRUE ~ \"High ability\"\r\n    ),\r\n    # Create outcome categories  \r\n    outcome_level = case_when(\r\n      kid_score <= quantile(kid_score, 0.25, na.rm = TRUE) ~ \"Low outcome\",\r\n      kid_score <= quantile(kid_score, 0.75, na.rm = TRUE) ~ \"Medium outcome\",\r\n      TRUE ~ \"High outcome\"\r\n    ),\r\n    # Identify \"surprising\" cases\r\n    surprising_case = case_when(\r\n      ability_level == \"High ability\" & outcome_level == \"Low outcome\" ~ \"High ability, low outcome\",\r\n      ability_level == \"Low ability\" & outcome_level == \"High outcome\" ~ \"Low ability, high outcome\",\r\n      TRUE ~ \"Expected pattern\"\r\n    ),\r\n    \r\n    # Create groups for age of mother\r\n    age_group = case_when(\r\n      mom_age <= 16 ~ \"16 or under\",\r\n      mom_age >= 17 & mom_age <= 19 ~ \"17-19\",\r\n      mom_age >= 20 & mom_age <= 22 ~ \"20-22\",\r\n      mom_age >= 23 & mom_age <= 25 ~ \"23-25\",\r\n      mom_age >= 26 & mom_age <= 28 ~ \"26-28\",\r\n      mom_age >= 29 ~ \"29 or over\",\r\n    )\r\n  )\r\n\r\n\r\nData Visaulisations\r\nMean Turnout by Country in the 2024 UK General Election\r\n\r\n\r\n\r\nDistribution of Constituencies by Level of Turnout\r\nMost constituencies fall in the “High” turnout category.\r\n\r\n\r\n\r\nImpact of Mothers’ Age, Education, and Work Status on Child Test Score\r\nStructural Factors Generally Stand\r\nThey remain the best predictor of child test score outcomes, though there are some surprising cases.\r\n\r\n\r\n\r\nData Sources\r\nNational Longitudinal Survey of Youth, Kidiq Dataset\r\nParliament Election Results, 2024 UK General Election candidate-level data. Available at: https://electionresults.parliament.uk/general-elections/6\r\n\r\n\r\n\r\n",
+      "last_modified": "2026-03-30T06:54:37+01:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Data Analysis Portfolio",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\nSamvit Sibal\r\nBSc Politics and International Relations Student\r\nUniversity of Essex\r\n\r\n\r\n LinkedIn\r\n Email\r\n GitHub Repository\r\n\r\n\r\n",
+      "last_modified": "2026-03-30T06:55:57+01:00"
+    },
+    {
+      "path": "Text-Analysis.html",
+      "title": "📑 Text Analysis",
+      "description": "This page is demonstration of Text Analysis undertaken for the GV300 Advanced Quantitative Political Analysis module.\n",
+      "author": [],
+      "contents": "\r\n\r\nContents\r\nDictionary Approaches to Text\r\nSomthing\r\n\r\nDictionary Approaches to Text\r\nApplying language and rhetoric of uncertainty to inflation\r\nThis analysis looks at uncertain language used in Federal Open Market Committee statements by the United States Federal Reserve and their impact on inflation.\r\nSomthing\r\nSomtehign\r\n\r\n\r\n\r\n",
+      "last_modified": "2026-03-30T06:54:40+01:00"
+    }
+  ],
+  "collections": []
+}
