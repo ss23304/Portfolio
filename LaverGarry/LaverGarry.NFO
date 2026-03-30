@@ -1,0 +1,34 @@
+[PROTECTION]
+Stemming=0
+Exclusion List=0
+Include Level=0
+Overlap=0
+Category only=0
+Exclude word=0
+Process numeric=0
+Valid char=0
+Case sensitive=0
+Exclusion=0
+Inclusion=0
+[DESCRIPTION]
+Show=0
+TEXT=
+[WordStat]
+Level=2
+Stemming=0
+Stemming type=English Lemmatization
+Exclusion=1
+Exclusion List=C:\Users\Normand\Documents\My Provalis Research Projects\Dict\English.exc
+Last Category=1
+Process Numeric=1
+Exclude Category Names=1
+Characters='$
+Case sensitive=0
+Overlap=1
+[CATEGORIES]
+\CULTURE\CULTURE-HIGH=
+\CULTURE\CULTURE-POPULAR=
+\ENVIRONMENT\CON ENVIRONMENT=
+\ENVIRONMENT\PRO ENVIRONMENT=
+\LAW_AND_ORDER\LAW-CONSERVATIVE=
+\LAW_AND_ORDER\LAW-LIBERAL=
