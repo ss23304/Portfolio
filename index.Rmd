@@ -1,0 +1,39 @@
+---
+title: "Data Analysis Portfolio"
+site: distill::distill_website
+---
+```{r pressure, echo=FALSE, out.width = '30%'}
+knitr::include_graphics("samvit.jpeg")
+```
+
+Samvit Sibal
+---
+### BSc Politics and International Relations Student 
+##### University of Essex
+
+```{r, echo=FALSE, results='asis'}
+library(distilltools)
+cat('<div class="icon-row">')
+icon_link(
+  icon = "linkedin",
+  text = "LinkedIn",
+  url = "https://linkedin.com/in/samvitss",
+  rel = "noopener"
+)
+
+icon_link(
+  icon = "envelope",
+  text = "Email",
+  url = "mailto:ss23304@essex.ac.uk",
+  rel = "noopener"
+)
+
+icon_link(
+  icon = "github",
+  text = "GitHub Repository",
+  url = "https://github.com/ss23304/Portfolio",
+  rel = "noopener"
+)
+cat('</div>')
+```
+</div>

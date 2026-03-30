@@ -1,0 +1,274 @@
+---
+title: "📑 Text Analysis"
+description: |
+  This page is demonstration of Text Analysis undertaken for the GV300 Advanced Quantitative Political Analysis module.
+output: 
+  distill::distill_article:
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+```{r, include=FALSE}
+library(stringr)
+library(readr)
+library(ggplot2)
+library(curl)
+library(tidyverse)
+library(quanteda)
+require(ggplot2)
+library(readtext)
+library(caret)
+library(quanteda.textmodels)
+```
+
+## Dictionary Approaches
+
+### Applying language and rhetoric of uncertainty to inflation
+
+##### This analysis looks at uncertain language used in Federal Open Market Committee statements by the United States Federal Reserve and their impact on inflation.
+
+- First we create a dictionary of words of uncertainty that appear in the statements
+- We then apply this dictionary inflation to observe the impact of the rhetoric in statements on inflation
+
+
+#### Setup
+```{r, echo = FALSE, message = FALSE, error = FALSE, warning = FALSE, code_folding = TRUE}
+filenames <- list.files("FOMC", "\\.txt$")
+txts <-  readtext(paste0("FOMC",  "/", "*.txt"))[]
+str(txts)
+substring(texts(txts)["2005_02_1.txt"], 1, 150)
+txtCorpus <- corpus(txts)
+head(summary(txtCorpus))
+options(width = 30)
+might <- kwic(tokens(txtCorpus), "might")
+View(might)
+tokensFromCorp <- tokens(txtCorpus) 
+dfmCorp <- dfm(tokensFromCorp)
+topfeatures(dfmCorp, 20)
+```
+
+#### Importing Dictionary
+```{r, echo = TRUE, message = FALSE, error = FALSE, warning = FALSE, eval = TRUE}
+test_dict <- dictionary(list(specific = c("clear*", "certain*", "unequi*"),
+                          vague = c("probably", "uncert*", "might", "could")))
+precision <- dfm_lookup(dfmCorp, dictionary = test_dict)
+
+tail(precision)
+
+test_dict2 <- dictionary(list(consumerinflation = c("inflation", "price", "cost", "housing"), output = c("growth", "gap", "employment", "output gap"), producerinflation = c("oil", "trucks", "tarrif")))
+
+topics <- dfm_lookup(dfmCorp, dictionary = test_dict2)
+head(topics)
+
+test_sentiment <- dictionary(list(positive = c("agree", "yes", "happy"), negative = c("sad", "disagree", "no"), neutral = c("ambiguous", "maybe", "content")))
+sentiment <- dfm_lookup(dfmCorp, dictionary = test_sentiment)
+sentiment
+```
+
+#### Creating Uncertainty Dictionary
+```{r, echo = TRUE, message = FALSE, error = FALSE, warning = FALSE, eval = TRUE}
+Uncertaintydict <- dictionary(list(uncertainty = c("abeyance",
+"abeyances",
+"almost",
+"alteration",
+"alterations",
+"ambiguities",
+"ambiguity",
+"ambiguous",
+"anomalies",
+"anomalous",
+"anomalously",
+"anomaly",
+"anticipate",
+"anticipated",
+"anticipates",
+"anticipating",
+"anticipation",
+"anticipations",
+"apparent",
+"apparently",
+"appear",
+"appeared",
+"appearing",
+"appears",
+"approximate",
+"approximated",
+"approximately",
+"approximates",
+"approximating",
+"approximation",
+"approximations",
+"arbitrarily",
+"arbitrariness",
+"arbitrary",
+"assume",
+"assumed",
+"assumes",
+"assuming",
+"assumption",
+"assumptions"),
+inflation = c("inflation", "price", "cost", "oil", "housing"), output = c("growth", "gap", "employment")))
+```
+
+#### Applying Uncertainty Dictionary to Dataframe
+```{r, echo = TRUE, message = FALSE, error = FALSE, warning = FALSE, eval = TRUE}
+uncertainty <- dfm_lookup(dfmCorp, dictionary = Uncertaintydict) 
+head(uncertainty)
+```
+
+## Analysing Textual Data
+
+### Analysing trends of change in length of UK political parties' manifestos
+
+#### creating a corpus of information on manifesto length
+```{r, echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+library(quanteda)
+library(readtext)
+library(ggplot2)
+library(ggthemes)
+manifestos <- readtext("UK Manifestos/*.txt", docvarsfrom = c("filenames"))
+# the argument docvarsfrom= allows us to use the filenames as document ids 
+# there should be 69 of them
+manifestos #to check
+# '> corpusSource object containing 69 texts and 1 docvar.'
+# We need to turn the text files into a 'corpus' 
+manifestos_corpus <- corpus(manifestos, docnames = manifestos$doc_id)
+# just make sure the docnames are as expected (is being corrected in rebuild)
+docnames(manifestos_corpus)
+
+# summary of the corpus information: tokens and types
+ntk <- ntoken(manifestos_corpus) # tokes per document
+ntps <- ntype(manifestos_corpus) # types per document
+
+# Organising dates
+num_sentences <- nsentence(manifestos_corpus)
+#need to grab the dates of the manifestos. We could have added that via docvars()<-
+#but let's just do a bit of regex, so you've seen it at work
+nms <- names (manifestos_corpus) # names
+Dates <- as.numeric(gsub('[^[:digit:]]','', nms))
+Dates
+```
+
+#### Visualising results
+```{r, echo = FALSE, message = FALSE, error = FALSE, warning = FALSE, eval = TRUE, layout="l-body-outset"}
+info_summary <- data.frame(Dates = Dates, Sentences = num_sentences)
+head(info_summary)
+info_summary[69,]
+ggplot(data=info_summary, aes(x=Dates, y=Sentences, group=1)) +  geom_point() +
+  labs(
+    x = "Date",
+    y = "Number of Sentences",
+    title = "Sentence Length of Manifestos"
+  ) +
+  geom_smooth() +
+  theme_economist()
+```
+
+
+## Applying Naïve Bayes Classification
+
+### Exploring mentions of Democrat and Republican presidents in speeches
+
+#### Setup
+```{r, echo = FALSE, message = FALSE, error = FALSE, warning = FALSE, code_folding = TRUE}
+speeches <- readtext("Concession Speeches/*.txt")  #astrix means take everything
+speeches
+speeches_corpus <- corpus(speeches) # Corpus collection of documents
+speeches_corpus
+
+as.character(speeches_corpus[4]) # HILLARY CLINTON
+
+typeof(speeches_corpus)
+
+summary(speeches_corpus) # overview information 
+```
+
+#### Renaming Variables for Readability
+```{r, echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+nms <-names(speeches_corpus) #Get Filenames from corpus object
+nms
+speeches_corpus$Dates  <- paste(as.numeric(gsub('[^[:digit:]]','', names(speeches_corpus)))) # Get dates from file object
+speeches_corpus$Party <- str_sub(nms, start= -5, -5) # Get Party ID from file object, fifth from end
+speeches_corpus$PNames <- str_sub(nms, end = -12) #Get Name from file object
+summary(speeches_corpus)
+```
+
+#### Transforming Documents to Paragraphs to have greater sample for model to analyse
+```{r,echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+speeches_paragraph <- corpus_reshape(speeches_corpus, to = "paragraphs", use_docvars = TRUE) # Can also change to sentences
+summary(speeches_paragraph)
+```
+
+#### Checking Class Balance
+```{r,echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+table(speeches_paragraph$Party) # Check for Balance in Party Labels 
+prop.d <- 157/337
+prop.r <- 1-prop.d
+prop.d 
+prop.r 
+```
+
+- There is a slight imbalance in the data, with 180 Republicans compared to only 157 Democracts.
+
+#### Tidying Data
+```{r,echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+speech_tokens <- tokens(speeches_paragraph, remove_punct = TRUE, remove_symbols = TRUE, split_hyphens = TRUE, remove_numbers = TRUE) #turn them into individual words and punctuation
+speech_tokens #As we can see here, we now have a list of words
+speeches_clean <- tokens_wordstem(speech_tokens) # stem the words getting rid of endings
+speeches_clean <- tokens_remove(speeches_clean, pattern = c("applpaus", "applause")) #misspelling
+speeches_clean <- tokens_select(speeches_clean, c("*st", "*th", "*rd"), selection = "remove") # get rid of special endings like 43rd
+speeches_clean <- dfm(speeches_clean)
+
+speeches_clean <- dfm_remove(speeches_clean,
+                      stopwords("english"))
+
+speeches_clean <- speeches_clean[, order(featnames(speeches_clean))]
+speeches_clean
+```
+
+#### Establishing the training and testing data
+```{r,echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+Concession_dfm_train <- speeches_clean[1:268, ] #80% of total observations
+Concession_dfm_test <- speeches_clean[269:337, ] #20% of total observations
+Concession_train_labels <- speeches_paragraph$Party[1:268]
+Concession_test_labels <- speeches_paragraph$Party[269:337]
+Concession_dfm_train
+Concession_train_labels[1:10]
+```
+
+- Herw we have designated 80% of the data to train the model, and the remaining 20% to evaluate its own accuracy.
+
+#### Running the Model
+```{r,echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+nb_model <- textmodel_nb(Concession_dfm_train, docvars(Concession_dfm_train, "Party"))
+summary(nb_model)
+
+dfmat_matched <- dfm_match(Concession_dfm_test, features = featnames(Concession_dfm_train)) #forcing keeping only features
+actual_class <- dfmat_matched$Party
+predicted_class <- predict(nb_model, newdata = dfmat_matched)
+```
+
+#### Evaluating the Model
+```{r,echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+tab_class <- table(predicted_class, actual_class)
+tab_class
+```
+
+- Here we can see that the majority of observations sit in the top right, which are false negatives. This means the model is not particularly accurate. Only 10 observations sit in the top left, true positive.
+
+#### Evaluating Accuracy and Precision
+```{r,echo = TRUE, message = FALSE, error = FALSE, warning = FALSE}
+cfm <- confusionMatrix(tab_class, mode="everything")
+cfm
+```
+
+- The evaluation shows that the model is recalls 83% of observations correctly, however this is with a precision of only 0.2, so the model is not particularly reliable. The balanced accuracy score of 58% means that the model is not a good fit, as over 40% of observations will be incorrectly categorised.
+
+## Data Sources
+
+- UK Manifestos
+- US Presidential Election Concession Speeches
+- Federal Open Market Committee Statements - US Federal Reserve
