@@ -89,22 +89,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title> ⁂ Samvit Sibal // Data Analysis Portfolio: 📑 Text Analysis</title>
+  <title>Samvit Sibal // Data Analysis Portfolio: 📑 Text Analysis</title>
 
   <meta property="description" itemprop="description" content="This page is demonstration of Text Analysis undertaken for the GV300 Advanced Quantitative Political Analysis module."/>
 
+  <link rel="icon" type="image/png" href="favicon.png"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content=" ⁂ Samvit Sibal // Data Analysis Portfolio: 📑 Text Analysis"/>
+  <meta property="og:title" content="Samvit Sibal // Data Analysis Portfolio: 📑 Text Analysis"/>
   <meta property="og:type" content="article"/>
   <meta property="og:description" content="This page is demonstration of Text Analysis undertaken for the GV300 Advanced Quantitative Political Analysis module."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content=" ⁂ Samvit Sibal // Data Analysis Portfolio"/>
+  <meta property="og:site_name" content="Samvit Sibal // Data Analysis Portfolio"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content=" ⁂ Samvit Sibal // Data Analysis Portfolio: 📑 Text Analysis"/>
+  <meta property="twitter:title" content="Samvit Sibal // Data Analysis Portfolio: 📑 Text Analysis"/>
   <meta property="twitter:description" content="This page is demonstration of Text Analysis undertaken for the GV300 Advanced Quantitative Political Analysis module."/>
 
   <!--/radix_placeholder_meta_tags-->
@@ -2241,11 +2242,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   .distill-site-header {
     --title-size:       18px;
-    --text-color:       #cb9d06;
+    --text-color:       white;
     --text-size:        15px;
-    --hover-color:      white;
+    --hover-color:      #cb9d06;
     --bkgd-color:       #35530a;
+    --navbar-font: "DM Mono", sans-serif;
+    font-weight: 500 !important;
   }
+
 
   .distill-site-footer {
     --text-color:       rgba(255, 255, 255, 0.7);
@@ -2276,7 +2280,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       color: white;
   }
 
-  p, h3, h4 {
+  h3, h4 {
       line-height: 1.2 !important;   /* tighter spacing */
       margin-bottom: 0.1em !important;
       margin-top:; 0.1em !important;
@@ -2293,7 +2297,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       border-radius: 16px;
   }
 
-
   /* Keep emoji on the first line only */
   .emoji {
     white-space: nowrap;
@@ -2304,7 +2307,113 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     display: inline-block;
   }
 
-  </style>
+  .distill-site-header a,
+  .distill-site-header .title {
+    color: white !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+
+  .distill-site-header a:hover,
+  .distill-site-header .title:hover {
+    color: #cb9d06 !important;
+  }
+
+  .distill-site-header .nav-dropdown-content {
+    background-color: #35530a !important;
+  }
+
+  .distill-site-header .nav-dropdown-content a {
+    color: white !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    background-color: transparent !important;
+  }
+
+  .distill-site-header .nav-dropdown-content a:hover {
+    color: #cb9d06 !important;
+    background-color: #35530a !important;
+  }
+
+  .distill-site-header .nav-dropdown:hover .nav-dropdown-content {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .distill-site-footer {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .custom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.6rem 2rem;
+    background-color: #35530a;
+    color: white;
+    box-sizing: border-box;
+  }
+
+  .footer-left,
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .footer-center {
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    flex: 1;
+    font-size: 0.7rem;
+
+  }
+
+  .footer-center a {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: 300 !important;
+  }
+
+  .footer-center a:hover {
+    color: #cb9d06 !important;
+  }
+
+  .footer-logo {
+    height: 32px;
+    width: auto;
+  }
+
+  .footer-copyright-symbol {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+  }
+
+  .footer-year {
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+  }
+
+  d-appendix {
+    padding-top: 1rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  d-appendix h2 {
+    margin-top: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  d-article h2 {
+    margin-top: 2rem !important;
+    margin-bottom: 0rem !important;
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2488,13 +2597,35 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title"> ⁂ Samvit Sibal // Data Analysis Portfolio</a>
+<span class="logo">
+<img src="logo.png"/>
+</span>
+<a href="index.html" class="title">Samvit Sibal // Data Analysis Portfolio</a>
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Showcase
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
 <a href="Data-Analysis.html">Data Analysis &amp; Visualisation</a>
 <a href="Text-Analysis.html">Text Analysis</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Projects
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Parliamentary-Questions.html">🆕 Analysis of Parliamentary Questions</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2551,7 +2682,7 @@ Show code
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substring</a></span><span class='op'>(</span><span class='fu'>texts</span><span class='op'>(</span><span class='va'>txts</span><span class='op'>)</span><span class='op'>[</span><span class='st'>"2005_02_1.txt"</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>150</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/substr.html'>substring</a></span><span class='op'>(</span><span class='fu'><a href='https://quanteda.io/reference/texts.html'>texts</a></span><span class='op'>(</span><span class='va'>txts</span><span class='op'>)</span><span class='op'>[</span><span class='st'>"2005_02_1.txt"</span><span class='op'>]</span>, <span class='fl'>1</span>, <span class='fl'>150</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
 <pre><code>                                                                                                                                             2005_02_1.txt 
@@ -2561,7 +2692,7 @@ Show code
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>txtCorpus</span> <span class='op'>&lt;-</span> <span class='fu'>corpus</span><span class='op'>(</span><span class='va'>txts</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>txtCorpus</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/corpus.html'>corpus</a></span><span class='op'>(</span><span class='va'>txts</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>txtCorpus</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
@@ -2578,11 +2709,11 @@ Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>30</span><span class='op'>)</span></span>
-<span><span class='va'>might</span> <span class='op'>&lt;-</span> <span class='fu'>kwic</span><span class='op'>(</span><span class='fu'>tokens</span><span class='op'>(</span><span class='va'>txtCorpus</span><span class='op'>)</span>, <span class='st'>"might"</span><span class='op'>)</span></span>
+<span><span class='va'>might</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/kwic.html'>kwic</a></span><span class='op'>(</span><span class='fu'><a href='https://quanteda.io/reference/tokens.html'>tokens</a></span><span class='op'>(</span><span class='va'>txtCorpus</span><span class='op'>)</span>, <span class='st'>"might"</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>might</span><span class='op'>)</span></span>
-<span><span class='va'>tokensFromCorp</span> <span class='op'>&lt;-</span> <span class='fu'>tokens</span><span class='op'>(</span><span class='va'>txtCorpus</span><span class='op'>)</span> </span>
-<span><span class='va'>dfmCorp</span> <span class='op'>&lt;-</span> <span class='fu'>dfm</span><span class='op'>(</span><span class='va'>tokensFromCorp</span><span class='op'>)</span></span>
-<span><span class='fu'>topfeatures</span><span class='op'>(</span><span class='va'>dfmCorp</span>, <span class='fl'>20</span><span class='op'>)</span></span></code></pre>
+<span><span class='va'>tokensFromCorp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/tokens.html'>tokens</a></span><span class='op'>(</span><span class='va'>txtCorpus</span><span class='op'>)</span> </span>
+<span><span class='va'>dfmCorp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm.html'>dfm</a></span><span class='op'>(</span><span class='va'>tokensFromCorp</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://quanteda.io/reference/topfeatures.html'>topfeatures</a></span><span class='op'>(</span><span class='va'>dfmCorp</span>, <span class='fl'>20</span><span class='op'>)</span></span></code></pre>
 </div>
 </details>
 <pre><code>      the        to         . 
@@ -2603,9 +2734,9 @@ Show code
 <h4 id="importing-dictionary">Importing Dictionary</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>test_dict</span> <span class='op'>&lt;-</span> <span class='fu'>dictionary</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>specific <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"clear*"</span>, <span class='st'>"certain*"</span>, <span class='st'>"unequi*"</span><span class='op'>)</span>,</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>test_dict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dictionary.html'>dictionary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>specific <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"clear*"</span>, <span class='st'>"certain*"</span>, <span class='st'>"unequi*"</span><span class='op'>)</span>,</span>
 <span>                          vague <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"probably"</span>, <span class='st'>"uncert*"</span>, <span class='st'>"might"</span>, <span class='st'>"could"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>precision</span> <span class='op'>&lt;-</span> <span class='fu'>dfm_lookup</span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>test_dict</span><span class='op'>)</span></span>
+<span><span class='va'>precision</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm_lookup.html'>dfm_lookup</a></span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>test_dict</span><span class='op'>)</span></span>
 <span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>tail</a></span><span class='op'>(</span><span class='va'>precision</span><span class='op'>)</span></span></code></pre>
 </div>
@@ -2619,9 +2750,9 @@ docs            specific vague
   2007_11_3.txt        0     1
   2007_11_4.txt        0     0</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>test_dict2</span> <span class='op'>&lt;-</span> <span class='fu'>dictionary</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>consumerinflation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"inflation"</span>, <span class='st'>"price"</span>, <span class='st'>"cost"</span>, <span class='st'>"housing"</span><span class='op'>)</span>, output <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"growth"</span>, <span class='st'>"gap"</span>, <span class='st'>"employment"</span>, <span class='st'>"output gap"</span><span class='op'>)</span>, producerinflation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"oil"</span>, <span class='st'>"trucks"</span>, <span class='st'>"tarrif"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>test_dict2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dictionary.html'>dictionary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>consumerinflation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"inflation"</span>, <span class='st'>"price"</span>, <span class='st'>"cost"</span>, <span class='st'>"housing"</span><span class='op'>)</span>, output <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"growth"</span>, <span class='st'>"gap"</span>, <span class='st'>"employment"</span>, <span class='st'>"output gap"</span><span class='op'>)</span>, producerinflation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"oil"</span>, <span class='st'>"trucks"</span>, <span class='st'>"tarrif"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
 <span></span>
-<span><span class='va'>topics</span> <span class='op'>&lt;-</span> <span class='fu'>dfm_lookup</span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>test_dict2</span><span class='op'>)</span></span>
+<span><span class='va'>topics</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm_lookup.html'>dfm_lookup</a></span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>test_dict2</span><span class='op'>)</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>topics</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>Document-feature matrix of: 6 documents, 3 features (33.33% sparse) and 0 docvars.
@@ -2634,8 +2765,8 @@ docs            consumerinflation output producerinflation
   2005_03_1.txt                 5      2                 0
   2005_03_2.txt                 4      1                 0</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>test_sentiment</span> <span class='op'>&lt;-</span> <span class='fu'>dictionary</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>positive <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"agree"</span>, <span class='st'>"yes"</span>, <span class='st'>"happy"</span><span class='op'>)</span>, negative <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sad"</span>, <span class='st'>"disagree"</span>, <span class='st'>"no"</span><span class='op'>)</span>, neutral <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ambiguous"</span>, <span class='st'>"maybe"</span>, <span class='st'>"content"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>sentiment</span> <span class='op'>&lt;-</span> <span class='fu'>dfm_lookup</span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>test_sentiment</span><span class='op'>)</span></span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>test_sentiment</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dictionary.html'>dictionary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>positive <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"agree"</span>, <span class='st'>"yes"</span>, <span class='st'>"happy"</span><span class='op'>)</span>, negative <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"sad"</span>, <span class='st'>"disagree"</span>, <span class='st'>"no"</span><span class='op'>)</span>, neutral <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ambiguous"</span>, <span class='st'>"maybe"</span>, <span class='st'>"content"</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>sentiment</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm_lookup.html'>dfm_lookup</a></span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>test_sentiment</span><span class='op'>)</span></span>
 <span><span class='va'>sentiment</span></span></code></pre>
 </div>
 <pre><code>Document-feature matrix of: 96 documents, 3 features (100.00% sparse) and 0 docvars.
@@ -2652,7 +2783,7 @@ docs            positive negative neutral
 <h4 id="creating-uncertainty-dictionary">Creating Uncertainty Dictionary</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>Uncertaintydict</span> <span class='op'>&lt;-</span> <span class='fu'>dictionary</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>uncertainty <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abeyance"</span>,</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>Uncertaintydict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dictionary.html'>dictionary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>uncertainty <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"abeyance"</span>,</span>
 <span><span class='st'>"abeyances"</span>,</span>
 <span><span class='st'>"almost"</span>,</span>
 <span><span class='st'>"alteration"</span>,</span>
@@ -2698,7 +2829,7 @@ docs            positive negative neutral
 <h4 id="applying-uncertainty-dictionary-to-dataframe">Applying Uncertainty Dictionary to Dataframe</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>uncertainty</span> <span class='op'>&lt;-</span> <span class='fu'>dfm_lookup</span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>Uncertaintydict</span><span class='op'>)</span> </span>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>uncertainty</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm_lookup.html'>dfm_lookup</a></span><span class='op'>(</span><span class='va'>dfmCorp</span>, dictionary <span class='op'>=</span> <span class='va'>Uncertaintydict</span><span class='op'>)</span> </span>
 <span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>uncertainty</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>Document-feature matrix of: 6 documents, 3 features (0.00% sparse) and 0 docvars.
@@ -2915,8 +3046,8 @@ Show code
 [19] &quot;Stevenson_1952_D.txt&quot;</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>speeches_corpus</span><span class='op'>$</span><span class='va'>Dates</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/grep.html'>gsub</a></span><span class='op'>(</span><span class='st'>'[^[:digit:]]'</span>,<span class='st'>''</span>, <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>speeches_corpus</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># Get dates from file object</span></span>
-<span><span class='va'>speeches_corpus</span><span class='op'>$</span><span class='va'>Party</span> <span class='op'>&lt;-</span> <span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>nms</span>, start<span class='op'>=</span> <span class='op'>-</span><span class='fl'>5</span>, <span class='op'>-</span><span class='fl'>5</span><span class='op'>)</span> <span class='co'># Get Party ID from file object, fifth from end</span></span>
-<span><span class='va'>speeches_corpus</span><span class='op'>$</span><span class='va'>PNames</span> <span class='op'>&lt;-</span> <span class='fu'>str_sub</span><span class='op'>(</span><span class='va'>nms</span>, end <span class='op'>=</span> <span class='op'>-</span><span class='fl'>12</span><span class='op'>)</span> <span class='co'>#Get Name from file object</span></span>
+<span><span class='va'>speeches_corpus</span><span class='op'>$</span><span class='va'>Party</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://stringr.tidyverse.org/reference/str_sub.html'>str_sub</a></span><span class='op'>(</span><span class='va'>nms</span>, start<span class='op'>=</span> <span class='op'>-</span><span class='fl'>5</span>, <span class='op'>-</span><span class='fl'>5</span><span class='op'>)</span> <span class='co'># Get Party ID from file object, fifth from end</span></span>
+<span><span class='va'>speeches_corpus</span><span class='op'>$</span><span class='va'>PNames</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://stringr.tidyverse.org/reference/str_sub.html'>str_sub</a></span><span class='op'>(</span><span class='va'>nms</span>, end <span class='op'>=</span> <span class='op'>-</span><span class='fl'>12</span><span class='op'>)</span> <span class='co'>#Get Name from file object</span></span>
 <span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>speeches_corpus</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>Corpus consisting of 19 documents, showing 19 documents:
@@ -3294,7 +3425,25 @@ predicted_class  D  R
 <div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+<div class="custom-footer">
+  <div class="footer-left">
+    <img src="logo.png" class="footer-logo">
+  </div>
+
+  <div class="footer-center">
+  Built in R with <a href="https://rstudio.github.io/distill/" target="_blank">Distill</a>
+  </div>
+
+
+  <div class="footer-right">
+    <span class="footer-copyright-symbol">©</span>
+    <span class="footer-year">2026</span>
+  </div>
+</div>
+</div>
 <!--/radix_placeholder_navigation_after_body-->
+
 
 </body>
 

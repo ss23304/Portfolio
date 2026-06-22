@@ -62,11 +62,14 @@ d-appendix {
 
 .distill-site-header {
   --title-size:       18px;
-  --text-color:       #cb9d06;
+  --text-color:       white;
   --text-size:        15px;
-  --hover-color:      white;
+  --hover-color:      #cb9d06;
   --bkgd-color:       #35530a;
+  --navbar-font: "DM Mono", sans-serif;
+  font-weight: 500 !important;
 }
+
 
 .distill-site-footer {
   --text-color:       rgba(255, 255, 255, 0.7);
@@ -97,7 +100,7 @@ d-appendix {
     color: white;
 }
 
-p, h3, h4 {
+h3, h4 {
     line-height: 1.2 !important;   /* tighter spacing */
     margin-bottom: 0.1em !important;
     margin-top:; 0.1em !important;
@@ -114,7 +117,6 @@ img {
     border-radius: 16px;
 }
 
-
 /* Keep emoji on the first line only */
 .emoji {
   white-space: nowrap;
@@ -125,4 +127,110 @@ img {
   display: inline-block;
 }
 
+.distill-site-header a,
+.distill-site-header .title {
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
 
+.distill-site-header a:hover,
+.distill-site-header .title:hover {
+  color: #cb9d06 !important;
+}
+
+.distill-site-header .nav-dropdown-content {
+  background-color: #35530a !important;
+}
+
+.distill-site-header .nav-dropdown-content a {
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  background-color: transparent !important;
+}
+
+.distill-site-header .nav-dropdown-content a:hover {
+  color: #cb9d06 !important;
+  background-color: #35530a !important;
+}
+
+.distill-site-header .nav-dropdown:hover .nav-dropdown-content {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.distill-site-footer {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.custom-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.6rem 2rem;
+  background-color: #35530a;
+  color: white;
+  box-sizing: border-box;
+}
+
+.footer-left,
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.footer-center {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  color: white;
+  text-align: center;
+  flex: 1;
+  font-size: 0.7rem;
+
+}
+
+.footer-center a {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 300 !important;
+}
+
+.footer-center a:hover {
+  color: #cb9d06 !important;
+}
+
+.footer-logo {
+  height: 32px;
+  width: auto;
+}
+
+.footer-copyright-symbol {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.footer-year {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+}
+
+d-appendix {
+  padding-top: 1rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+d-appendix h2 {
+  margin-top: 1rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+d-article h2 {
+  margin-top: 2rem !important;
+  margin-bottom: 0rem !important;
+}

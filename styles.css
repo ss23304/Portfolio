@@ -1,0 +1,62 @@
+@font-face {
+  font-family: "National LFS Book";
+  src: url("fonts/NationalLFS-Book.woff2") format("woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "National LFS Semibold";
+  src: url("fonts/NationalLFS-Semibold.woff2") format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Cascadia Code";
+  src: url("fonts/CascadiaCode.woff2") format("woff2");
+  font-weight: 400;
+  font-feature-settings: "calt" 1, "liga" 1;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("fonts/OpenSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+}
+
+body {
+  font-family: "National LFS Book", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "National LFS Semibold", sans-serif;
+}
+
+pre, code {
+  font-family: "Cascadia Code", monospace;
+  font-feature-settings: "calt" 1, "liga" 1;
+}
+
+
+/* === Cascadia Code font with ligatures === */
+pre, code {
+  font-family: "Cascadia Code", monospace;
+  font-feature-settings: "calt" 1, "liga" 1;
+}
+
+code span.kw { color: #ad3d8f; }   /* keywords */
+code span.fu { color: #ad3d8f; }   /* function names */
+code span.cn { color: #C41A16; }   /* constants / booleans */
+code span.st { color: #e67e00; }   /* strings */
+code span.co { color: #007400; }   /* comments */
+code span.dv { color: #1C00CF; }   /* numbers */
+code span.op { color: #000000; }   /* operators */
+
+pre,
+code,
+pre code,
+.sourceCode,
+.sourceCode code,
+pre code span,
+code span {
+  font-weight: 400 !important;
+}

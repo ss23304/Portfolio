@@ -89,20 +89,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title> ⁂ Samvit Sibal // Data Analysis Portfolio: Data Analysis Portfolio</title>
+  <title>Samvit Sibal // Data Analysis Portfolio: Data Analysis Portfolio</title>
 
 
+  <link rel="icon" type="image/png" href="favicon.png"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content=" ⁂ Samvit Sibal // Data Analysis Portfolio: Data Analysis Portfolio"/>
+  <meta property="og:title" content="Samvit Sibal // Data Analysis Portfolio: Data Analysis Portfolio"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content=" ⁂ Samvit Sibal // Data Analysis Portfolio"/>
+  <meta property="og:site_name" content="Samvit Sibal // Data Analysis Portfolio"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content=" ⁂ Samvit Sibal // Data Analysis Portfolio: Data Analysis Portfolio"/>
+  <meta property="twitter:title" content="Samvit Sibal // Data Analysis Portfolio: Data Analysis Portfolio"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
@@ -2238,11 +2239,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   .distill-site-header {
     --title-size:       18px;
-    --text-color:       #cb9d06;
+    --text-color:       white;
     --text-size:        15px;
-    --hover-color:      white;
+    --hover-color:      #cb9d06;
     --bkgd-color:       #35530a;
+    --navbar-font: "DM Mono", sans-serif;
+    font-weight: 500 !important;
   }
+
 
   .distill-site-footer {
     --text-color:       rgba(255, 255, 255, 0.7);
@@ -2273,7 +2277,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       color: white;
   }
 
-  p, h3, h4 {
+  h3, h4 {
       line-height: 1.2 !important;   /* tighter spacing */
       margin-bottom: 0.1em !important;
       margin-top:; 0.1em !important;
@@ -2290,7 +2294,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
       border-radius: 16px;
   }
 
-
   /* Keep emoji on the first line only */
   .emoji {
     white-space: nowrap;
@@ -2301,7 +2304,113 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     display: inline-block;
   }
 
-  </style>
+  .distill-site-header a,
+  .distill-site-header .title {
+    color: white !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+
+  .distill-site-header a:hover,
+  .distill-site-header .title:hover {
+    color: #cb9d06 !important;
+  }
+
+  .distill-site-header .nav-dropdown-content {
+    background-color: #35530a !important;
+  }
+
+  .distill-site-header .nav-dropdown-content a {
+    color: white !important;
+    text-decoration: none !important;
+    border-bottom: none !important;
+    background-color: transparent !important;
+  }
+
+  .distill-site-header .nav-dropdown-content a:hover {
+    color: #cb9d06 !important;
+    background-color: #35530a !important;
+  }
+
+  .distill-site-header .nav-dropdown:hover .nav-dropdown-content {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+  .distill-site-footer {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .custom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.6rem 2rem;
+    background-color: #35530a;
+    color: white;
+    box-sizing: border-box;
+  }
+
+  .footer-left,
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .footer-center {
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    flex: 1;
+    font-size: 0.7rem;
+
+  }
+
+  .footer-center a {
+    color: white !important;
+    text-decoration: none !important;
+    font-weight: 300 !important;
+  }
+
+  .footer-center a:hover {
+    color: #cb9d06 !important;
+  }
+
+  .footer-logo {
+    height: 32px;
+    width: auto;
+  }
+
+  .footer-copyright-symbol {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+  }
+
+  .footer-year {
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+  }
+
+  d-appendix {
+    padding-top: 1rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  d-appendix h2 {
+    margin-top: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  d-article h2 {
+    margin-top: 2rem !important;
+    margin-bottom: 0rem !important;
+  }</style>
   <style type="text/css">
   /* base style */
 
@@ -2485,13 +2594,35 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <header class="header header--fixed" role="banner">
 <nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
-<a href="index.html" class="title"> ⁂ Samvit Sibal // Data Analysis Portfolio</a>
+<span class="logo">
+<img src="logo.png"/>
+</span>
+<a href="index.html" class="title">Samvit Sibal // Data Analysis Portfolio</a>
 </div>
 <div class="nav-right">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Showcase
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
 <a href="Data-Analysis.html">Data Analysis &amp; Visualisation</a>
 <a href="Text-Analysis.html">Text Analysis</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Projects
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="Parliamentary-Questions.html">🆕 Analysis of Parliamentary Questions</a>
+</div>
+</div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2511,7 +2642,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 <div class="d-article">
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="samvit.jpeg" alt="" width="30%" /></p>
+<p><img src="square.png" alt="" width="30%" /></p>
 </div>
 <h2 id="samvit-sibal">Samvit Sibal</h2>
 <h3 id="bsc-politics-and-international-relations-student">BSc Politics and International Relations Student</h3>
@@ -2539,7 +2670,25 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+<div class="custom-footer">
+  <div class="footer-left">
+    <img src="logo.png" class="footer-logo">
+  </div>
+
+  <div class="footer-center">
+  Built in R with <a href="https://rstudio.github.io/distill/" target="_blank">Distill</a>
+  </div>
+
+
+  <div class="footer-right">
+    <span class="footer-copyright-symbol">©</span>
+    <span class="footer-year">2026</span>
+  </div>
+</div>
+</div>
 <!--/radix_placeholder_navigation_after_body-->
+
 
 </body>
 
