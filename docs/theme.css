@@ -234,3 +234,7 @@ d-article h2 {
   margin-top: 2rem !important;
   margin-bottom: 0rem !important;
 }
+
+::selection {
+   background: #35530a;
+}
