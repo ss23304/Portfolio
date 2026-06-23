@@ -236,5 +236,6 @@ d-article h2 {
 }
 
 ::selection {
-   background: #35530a;
+  background: #35530a;   
+  color: #ffffff;
 }
